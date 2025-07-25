@@ -1,0 +1,33 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %} Update Delivery {% endblock %}
+
+{% block mainContent %}
+<div class="container mt-4">
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Date & Time</label>
+          {{ dForm.dateTime }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Status of Delivery</label>
+          {{ dForm.isSuccessfull }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Courier ID</label>
+          {{ dForm.courierId }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

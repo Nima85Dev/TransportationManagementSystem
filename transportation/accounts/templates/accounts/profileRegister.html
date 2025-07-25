@@ -1,0 +1,42 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Registration Form  
+{% endblock %}
+
+{% block mainContent %}
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mainborder">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mylable">Name: {{ formsData.first_name }}<br>{{ formsData.first_name.errors }}</p>
+          <p class="mylable">Surname: {{ formsData.last_name }}<br>{{ formsData.last_name.errors }}</p>
+          <p class="mylable">Gender: {{ formsData.Gender }}<br>{{ formsData.Gender.errors }}</p>
+          <p class="mylable">Credit: {{ formsData.Credit }}<br>{{ formsData.Credit.errors }}</p>
+        </div>
+
+        <div class="col-md-6">
+          <p class="mylable">Email: {{ formsData.email }}<br>{{ formsData.email.errors }}</p>
+          <p class="mylable">Username: {{ formsData.username }}<br>{{ formsData.username.errors }}</p>
+          <p class="mylable">Password: {{ formsData.password }}<br>{{ formsData.password.errors }}</p>
+
+          <p class="mylable">Profile Image: {{ formsData.ProfileImage }}<br>{{ formsData.ProfileImage.errors }}</p>
+
+          <p>
+            <a href="" class="captcha-refresh">
+              <img src="{% static 'affairs/images/refresh.jpg' %}" alt="Refresh" width="20" height="auto">
+            </a>
+            {{ formsData.captcha }}<br>{{ formsData.captcha.errors }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottonborder mt-3">
+      <button type="submit" class="btn btn-success">Register</button>
+    </div>
+  </form>
+{% endblock %}

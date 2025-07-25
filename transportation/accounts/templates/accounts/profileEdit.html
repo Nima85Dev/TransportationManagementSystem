@@ -1,0 +1,42 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Profile Edit 
+{% endblock %}
+
+{% block mainContent %}
+  <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mainborder">
+      <div class="row">
+        <div class="col-md-10">
+          <div>
+            <p class="border"><span class="title">Name:</span> {{ userEditForm.first_name }}</p>
+            <p class="border"><span class="title">Surname:</span> {{ userEditForm.last_name }}</p>
+            <p class="border"><span class="title">Email:</span> {{ userEditForm.email }}</p>
+            <p class="border"><span class="title">Gender:</span> {{ profileEditForm.Gender }}</p>
+            <p class="border"><span class="title">Credit:</span> {{ profileEditForm.Credit }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="imageBox">
+            {% if ProfileImage %}
+              <img class="img-thumbnail" src="{{ ProfileImage.url }}" alt="Profile image">
+            {% else %}
+              <img class="img-thumbnail" src="{% static 'images/default_profile.png' %}" alt="Default image">
+            {% endif %}
+          </div>
+          {{ profileEditForm.ProfileImage }}
+        </div>
+      </div>
+    </div>
+
+    <div class="bottonborder mt-3">
+      <a class="btn btn-primary" href="/accounts/changepassword">Change Password</a>
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+{% endblock %}

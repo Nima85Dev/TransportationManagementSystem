@@ -1,0 +1,35 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Courier List
+{% endblock %}
+
+{% block mainContent %}
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-bold">Courier Records</h4>
+    <a href="{% url 'courier_create' %}" class="btn btn-primary">Insert New Courier</a>
+  </div>
+
+  <div class="row g-3">
+    {% for co in courier %}
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-success">Courier ID: {{ co.courierId }}</h5>
+            <p class="card-text">Name: {{ co.cName }}</p>
+            <p class="card-text">Capacity: {{ co.capacity }}</p>
+            <div class="d-flex justify-content-between">
+              <a href="{% url 'courier_update' co.courierId %}" class="btn btn-success btn-sm">Update</a>
+              <a href="{% url 'courier_delete' co.courierId %}" class="btn btn-danger btn-sm" onclick="return warning()">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">No couriers found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

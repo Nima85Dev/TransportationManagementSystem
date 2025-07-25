@@ -1,0 +1,38 @@
+{% extends "affairs/layout.html" %}
+{% block titlepage %}
+  Register New Customer
+{% endblock %}
+
+{% block mainContent %}
+<div class="container mt-4">
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Name</label>
+          {{ cForm.name }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Surname</label>
+          {{ cForm.surname }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Identity Number</label>
+          {{ cForm.identityNo }}
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Address</label>
+          {{ cForm.address }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Create</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

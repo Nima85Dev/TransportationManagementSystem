@@ -1,0 +1,54 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %} Insert New Transport {% endblock %}
+
+{% block mainContent %}
+<div class="container mt-4">
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <label for="vehicleNo" class="form-label fw-bold">Vehicle Number</label>
+          {{ tForm.vehicleNo }}
+        </div>
+
+        <div class="mb-3">
+          <label for="departDate" class="form-label fw-bold">Departure Date</label>
+          {{ tForm.departDate }}
+        </div>
+
+        <div class="mb-3">
+          <label for="arrivalDate" class="form-label fw-bold">Arrival Date</label>
+          {{ tForm.arrivalDate }}
+        </div>
+
+        <div class="mb-3">
+          <label for="courierId" class="form-label fw-bold">Courier ID</label>
+          {{ tForm.courierId }}
+        </div>
+
+        <div class="mb-3">
+          <label for="source" class="form-label fw-bold">Source</label>
+          {{ tForm.source }}
+        </div>
+
+        <div class="mb-3">
+          <label for="destination" class="form-label fw-bold">Destination</label>
+          {{ tForm.destination }}
+        </div>
+
+        <div class="mb-3">
+          <label for="customerId" class="form-label fw-bold">Customer ID</label>
+          {{ tForm.customerId }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Create</button>
+
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

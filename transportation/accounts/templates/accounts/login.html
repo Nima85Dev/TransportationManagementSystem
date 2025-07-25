@@ -1,0 +1,39 @@
+{% extends "affairs/layout.html" %}
+
+{% block titlepage %}
+  Login Form
+{% endblock %}
+
+{% block mainContent %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form action="" method="POST" class="form">
+          {% csrf_token %}
+          
+          {% if errorMessage %}
+            <div class="alert alert-danger" role="alert">
+              <strong>{{ username }}</strong>: {{ errorMessage }}
+            </div>
+          {% endif %}
+
+          <h3 class="mb-4">Please enter your account info</h3>
+
+          <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Customer List
+{% endblock %}
+
+{% block mainContent %}
+<div class="container mt-3">
+  <div class="row g-4">
+    {% for cl in customers %}
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{ cl.name }} {{ cl.surname }}</h5>
+            <p class="card-text"><strong>Identity No:</strong> {{ cl.identityNo }}</p>
+            <p class="card-text"><strong>Address:</strong> {{ cl.address }}</p>
+            <div class="d-flex justify-content-between">
+              <a href="{% url 'customer_update' cl.id %}" class="btn btn-success btn-sm">Update</a>
+              <a href="{% url 'customer_delete' cl.id %}" class="btn btn-danger btn-sm" onclick="return warning()">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">No customers found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "affairs/layout.html" %}
+{% block titlepage %} Update Transport {% endblock %}
+{% block mainContent %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mainborder p-3">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="id_vehicleNo" class="form-label">Vehicle Number</label>
+                    {{ tForm.vehicleNo }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_departDate" class="form-label">Departure Date</label>
+                    {{ tForm.departDate }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_arrivalDate" class="form-label">Arrival Date</label>
+                    {{ tForm.arrivalDate }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_courierId" class="form-label">Courier ID</label>
+                    {{ tForm.courierId }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_source" class="form-label">Source</label>
+                    {{ tForm.source }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_destination" class="form-label">Destination</label>
+                    {{ tForm.destination }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_customerId" class="form-label">Customer ID</label>
+                    {{ tForm.customerId }}
+                </div>
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "affairs/layout.html" %}
+{% block titlepage %} Transport List {% endblock %}
+{% block mainContent %}
+<div class="mb-3">
+  <a href="create" class="btn btn-primary">Insert new transport</a>
+</div>
+
+<div class="row">
+  {% for tr in transports %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mb-2">
+            <a href="update/{{ tr.id }}" class="btn btn-sm btn-success">Update</a>
+            <a href="delete/{{ tr.id }}" class="btn btn-sm btn-danger" onclick="return warning()">Delete</a>
+          </div>
+          <p><strong>Vehicle Number:</strong> {{ tr.vehicleNo }}</p>
+          <p><strong>Departure Date:</strong> {{ tr.departDate }}</p>
+          <p><strong>Arrival Date:</strong> {{ tr.arrivalDate }}</p>
+          <p><strong>Courier ID:</strong> {{ tr.courierId }}</p>
+          <p><strong>Source:</strong> {{ tr.source }}</p>
+          <p><strong>Destination:</strong> {{ tr.destination }}</p>
+          <p><strong>Customer ID:</strong> {{ tr.customerId }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

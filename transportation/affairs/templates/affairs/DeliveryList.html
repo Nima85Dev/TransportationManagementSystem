@@ -1,0 +1,32 @@
+{% extends "affairs/layout.html" %}
+
+{% block titlepage %} Delivery List {% endblock %}
+
+{% block mainContent %}
+<div class="container mt-3">
+  <div class="mb-3">
+    <a href="{% url 'delivery_create' %}" class="btn btn-primary">Insert new delivery</a>
+  </div>
+  
+  <div class="row g-4">
+    {% for dl in deliveries %}
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">Delivery ID: {{ dl.id }}</h5>
+            <p class="card-text"><strong>Date & Time:</strong> {{ dl.dateTime }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ dl.isSuccessfull|yesno:"Successful,Unsuccessful" }}</p>
+            <p class="card-text"><strong>Courier ID:</strong> {{ dl.courierId }}</p>
+            <div class="d-flex justify-content-between">
+              <a href="{% url 'delivery_update' dl.id %}" class="btn btn-success btn-sm">Update</a>
+              <a href="{% url 'delivery_delete' dl.id %}" class="btn btn-danger btn-sm" onclick="return warning()">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">No deliveries found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

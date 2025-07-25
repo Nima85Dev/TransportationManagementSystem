@@ -1,0 +1,35 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Profile  
+{% endblock %}
+
+{% block mainContent %}
+  <div class="row mt-3">
+    <div class="col-md-8">
+      <p class="border">
+        <span class="title">Name & Surname:</span> {{ profile.user.get_full_name }}
+      </p>
+      <p class="border">
+        <span class="title">Gender:</span> {{ profile.get_Gender_display }}
+      </p>
+      <p class="border">
+        <span class="title">Credit:</span> {{ profile.Credit }}
+      </p>
+      <ul class="btnul">
+        <li>
+          <a class="btn btn-primary" href="/accounts/profile/edit">Profile Edit</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      {% if profile.ProfileImage %}
+        <img class="img-thumbnail" src="{{ profile.ProfileImage.url }}" alt="Profile Image">
+      {% else %}
+        <img class="img-thumbnail" src="{% static 'affairs/images/default_profile.png' %}" alt="Default Image">
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "affairs/layout.html" %}
+{% load static %}
+
+{% block titlepage %}
+  Update Courier
+{% endblock %}
+
+{% block mainContent %}
+<div class="container mt-4">
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Courier ID</label>
+          {{ coForm.courierId }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Courier Name</label>
+          {{ coForm.cName }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Capacity</label>
+          {{ coForm.capacity }}
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
