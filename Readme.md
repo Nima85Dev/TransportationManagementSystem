@@ -2,7 +2,7 @@
     A web-based Transportation Management System built with Django. The system allows authenticated users to manage couriers, customers, transports, and deliveries. It includes user registration, profile editing, and           password management features.
 
 2- Project Overview
-    The goal of this project is to optimize logistics for transportation. It offers features for managing user accounts as well as essential functions including scheduling transports, controlling delivery staff, monitoring     delivery results, and keeping track of customers.
+    The goal of this project is to optimize logistics for transportation. It offers features for managing user accounts as well as essential functions including scheduling transports, controlling delivery staff, monitoring delivery results, and keeping track of customers.
 
 3- Features
 
